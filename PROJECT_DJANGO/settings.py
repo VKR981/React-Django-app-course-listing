@@ -71,8 +71,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
 
-    "http://localhost:3000",
-    'https://enigmatic-caverns-89580.herokuapp.com',
+    "localhost:3000",
+    'enigmatic-caverns-89580.herokuapp.com'
 
 ]
 
