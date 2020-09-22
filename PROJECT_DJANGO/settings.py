@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 
     # First party..........
     'app01',
-    'app',
+    'app02',
 
 
     # Django default...........
