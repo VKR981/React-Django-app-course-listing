@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'knox',
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
 
     # First party..........
     'app01',
@@ -57,7 +57,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
