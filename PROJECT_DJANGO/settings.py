@@ -69,9 +69,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
+ALLOWED_HOSTS = [
 
-    "localhost:3000",
+    '0.0.0.0', 'localhost', '127.0.0.1',
     'enigmatic-caverns-89580.herokuapp.com'
 
 ]
