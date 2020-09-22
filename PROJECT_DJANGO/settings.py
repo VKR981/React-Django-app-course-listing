@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'uee^e589#3-(%u^z-ukfmd6jzpy%_(ox5ky^qgy4^1x+f5ayj_'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'uee^e589#3-(%u^z-ukfmd6jzpy%_(ox5ky^qgy4^1x+f5ayj_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -98,17 +100,18 @@ WSGI_APPLICATION = 'PROJECT_DJANGO.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'jagtmagt',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': 'jagtmagt',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
