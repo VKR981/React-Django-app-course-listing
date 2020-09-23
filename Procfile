@@ -1,1 +1,1 @@
-web: gunicorn PROJECT_DJANGO.wsgi --log-file -
+web: python manage.py runserver
