@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-# SECRET_KEY = 'uee^e589#3-(%u^z-ukfmd6jzpy%_(ox5ky^qgy4^1x+f5ayj_'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -105,20 +105,20 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-# db_from_env = 'postgres://cxwrgrguzhyasf:1b7ece3f20170578aeb574054ba3a71b9b3bdd30dda9458dc3878237f7b2427b@ec2-35-169-92-231.compute-1.amazonaws.com:5432/d2jd0j5ibpact8'
-# print(dj_database_url.config())
-# DATABASES = {'default': dj_database_url.config()}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'jagtmagt',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+print(dj_database_url.config())
+DATABASES = {'default': dj_database_url.config()}
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': 'jagtmagt',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
