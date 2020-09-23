@@ -86,7 +86,7 @@ ROOT_URLCONF = 'PROJECT_DJANGO.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend', "build")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,7 +105,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-db_from_env = dj_database_url.config(conn_max_age=600)
+db_from_env = 'postgres://cxwrgrguzhyasf:1b7ece3f20170578aeb574054ba3a71b9b3bdd30dda9458dc3878237f7b2427b@ec2-35-169-92-231.compute-1.amazonaws.com:5432/d2jd0j5ibpact8'
 print(dj_database_url.config())
 DATABASES = {'default': dj_database_url.config()}
 
@@ -162,7 +162,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = '/static/'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STATIC_ROOT = os.path.join(BASE_DIR, 'frontend')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', "build", "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, 'frontend', "build", "static")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', "build", "static1")]
 
 print(STATICFILES_DIRS, STATIC_ROOT, BASE_DIR)

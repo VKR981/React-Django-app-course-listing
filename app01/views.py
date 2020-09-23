@@ -16,7 +16,7 @@ import logging
 
 
 def index(request):
-    return render(request, 'build/index.html')
+    return render(request, 'index.html')
 
 
 class CourseAPI(viewsets.ModelViewSet):
@@ -27,7 +27,7 @@ class CourseAPI(viewsets.ModelViewSet):
     lookup_field = 'slug'
 
     def perform_create(self, serializer):
-        
+
         serializer.save(username=self.request.user)
 
     def destroy(self, request, *args, **kwargs):
