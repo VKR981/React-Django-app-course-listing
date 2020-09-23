@@ -32,17 +32,17 @@ class CourseAPI(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
-        print(request.user.username)
-        print(instance.username)
+        response = self.serializer_class(instance).data
         if str(instance.username) == str(request.user.username):
             self.perform_destroy(instance)
-            return Response(status.HTTP_202_ACCEPTED)
+            return Response(response)
         else:
             return Response(status.HTTP_400_BAD_REQUEST)
 
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
+
         if str(instance.username) == str(request.user.username):
             # self.perform_destroy(instance)
             serializer = self.get_serializer(
