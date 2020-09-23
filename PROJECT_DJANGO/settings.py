@@ -30,7 +30,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = []
 
-
+DEBUG_COLLECTSTATIC = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -156,7 +156,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -164,4 +164,5 @@ STATIC_URL = '/static/'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'frontend')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', "build", "static")]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+print(STATICFILES_DIRS, STATIC_ROOT, BASE_DIR)
