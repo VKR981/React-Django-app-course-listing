@@ -1,4 +1,5 @@
-from django.urls import path, include
+from django.conf import settings
+from django.urls import path, include, re_path
 from . import views
 from .views import CourseAPI, CommentAPI, RatingAPI
 from rest_framework.routers import DefaultRouter
@@ -10,8 +11,9 @@ router.register('comment', CommentAPI)
 router.register('rating', RatingAPI)
 
 urlpatterns = [
-    path("", views.index, name="index"),
+
     path("api/v1/", include(router.urls)),
+    re_path(r'^.*$', views.index, name="index"),
 
 
 ]

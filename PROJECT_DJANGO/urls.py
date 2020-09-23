@@ -21,3 +21,9 @@ urlpatterns = [
     path('', include('app02.urls')),
     path('admin/', admin.site.urls),
 ]
+# urlpatterns += [
+#     # match the root
+#     path(r'^$', include('app01.urls')),
+#     # match all other pages
+#     path(r'^(?:.*)/?$', include('app01.urls')),
+# ]
