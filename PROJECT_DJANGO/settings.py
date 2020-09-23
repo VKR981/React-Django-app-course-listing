@@ -106,7 +106,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-print(dj_database_url.config())
+
 DATABASES = {'default': dj_database_url.config()}
 
 # DATABASES = {
@@ -164,5 +164,3 @@ STATIC_URL = '/static/'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'frontend', "build", "static")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend', "build", "static1")]
-
-print(STATICFILES_DIRS, STATIC_ROOT, BASE_DIR)
